@@ -1,0 +1,158 @@
+.counter-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.counter-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.progress-ring-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  stroke-dasharray: 440;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.steps-text {
+  font-size: 32px;
+  fill: #333;
+  font-weight: bold;
+}
+
+.steps-label {
+  font-size: 16px;
+  fill: #666;
+}
+
+.progress-percentage {
+  text-align: center;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.stats-quick-view {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-with-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  margin: 0 5px;
+}

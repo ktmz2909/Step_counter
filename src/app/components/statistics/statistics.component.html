@@ -1,0 +1,71 @@
+<div class="statistics-container">
+  <div class="statistics-card">
+    <h2>Step Statistics</h2>
+
+    <div class="summary-stats">
+      <div class="stat-box">
+        <div class="stat-value">{{ weeklyTotal }}</div>
+        <div class="stat-label">Total Steps</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">{{ weeklyAverage }}</div>
+        <div class="stat-label">Daily Average</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">{{ totalDistance.toFixed(1) }} km</div>
+        <div class="stat-label">Total Distance</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">{{ totalCalories }}</div>
+        <div class="stat-label">Calories Burned</div>
+      </div>
+    </div>
+
+    <div class="achievement-container">
+      <div class="achievement-rate">
+        <h3>Goal Achievement</h3>
+        <div class="achievement-percentage">{{ goalAchievementRate }}%</div>
+        <div class="achievement-bar">
+          <div class="achievement-progress" [style.width.%]="goalAchievementRate"></div>
+        </div>
+      </div>
+      
+      <div class="best-day" *ngIf="bestDay">
+        <h3>Best Day</h3>
+        <div class="best-day-info">
+          <div class="best-day-date">{{ formatDate(bestDay.date) }}</div>
+          <div class="best-day-steps">{{ bestDay.steps }} steps</div>
+          <div class="best-day-details">
+            {{ bestDay.distance }} km | {{ bestDay.calories }} calories
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Daily History</h3>
+    <div class="history-table">
+      <div class="history-row header">
+        <div class="history-cell">Date</div>
+        <div class="history-cell">Steps</div>
+        <div class="history-cell">Goal</div>
+        <div class="history-cell">Distance</div>
+        <div class="history-cell">Calories</div>
+      </div>
+      
+      <div class="history-row" *ngFor="let entry of stepEntries; let i = index" [ngClass]="getProgressClass(entry)">
+        <div class="history-cell date">{{ formatDate(entry.date) }}</div>
+        <div class="history-cell steps">
+          {{ entry.steps }}
+          <span class="trend-icon" [ngClass]="getTrend(i)">
+            <span *ngIf="getTrend(i) === 'up'">▲</span>
+            <span *ngIf="getTrend(i) === 'down'">▼</span>
+            <span *ngIf="getTrend(i) === 'neutral'">●</span>
+          </span>
+        </div>
+        <div class="history-cell">{{ entry.goal }}</div>
+        <div class="history-cell">{{ entry.distance }} km</div>
+        <div class="history-cell">{{ entry.calories }}</div>
+      </div>
+    </div>
+  </div>
+</div>

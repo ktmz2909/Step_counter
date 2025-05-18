@@ -1,0 +1,24 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>Step Counter App</h1>
+    <nav class="app-nav">
+      <ul>
+        <li [ngClass]="{'active': currentView === 'counter'}">
+          <a (click)="switchView('counter')">Today's Steps</a>
+        </li>
+        <li [ngClass]="{'active': currentView === 'statistics'}">
+          <a (click)="switchView('statistics')">Statistics</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="app-content">
+    <app-counter *ngIf="currentView === 'counter'"></app-counter>
+    <app-statistics *ngIf="currentView === 'statistics'"></app-statistics>
+  </main>
+
+  <footer class="app-footer">
+    <p>Step Counter App &copy; 2025</p>
+  </footer>
+</div>

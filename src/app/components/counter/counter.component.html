@@ -1,0 +1,93 @@
+<div class="counter-container">
+  <div class="counter-card">
+    <h2>Today's Step Count</h2>
+
+    <div class="progress-container">
+      <div class="progress-ring-container">
+        <svg class="progress-ring" width="200" height="200">
+          <!-- Background circle -->
+          <circle
+            class="progress-ring-circle-bg"
+            stroke="#e6e6e6"
+            stroke-width="12"
+            fill="transparent"
+            r="80"
+            cx="100"
+            cy="100"
+          ></circle>
+          
+          <!-- Progress circle with animation -->
+          <circle
+            class="progress-ring-circle"
+            [style.stroke-dashoffset]="440 - (440 * getProgressPercentage() / 100)"
+            stroke="#4CAF50"
+            stroke-width="12"
+            fill="transparent"
+            r="80"
+            cx="100"
+            cy="100"
+          ></circle>
+          
+          <!-- Text in the middle -->
+          <text x="100" y="90" text-anchor="middle" class="steps-text">
+            {{ currentEntry?.steps || 0 }}
+          </text>
+          <text x="100" y="120" text-anchor="middle" class="steps-label">
+            steps
+          </text>
+        </svg>
+        
+        <div class="progress-percentage">{{ getProgressPercentage() }}% of daily goal</div>
+      </div>
+    </div>
+
+    <div class="stats-quick-view">
+      <div class="stat-item">
+        <div class="stat-value">{{ currentEntry?.distance || 0 }} km</div>
+        <div class="stat-label">Distance</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ currentEntry?.calories || 0 }}</div>
+        <div class="stat-label">Calories</div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div class="form-group">
+        <label for="steps">Update Steps:</label>
+        <div class="input-with-buttons">
+          <button (click)="addSteps(-100)" class="btn btn-secondary">-100</button>
+          <input
+            type="number"
+            id="steps"
+            [(ngModel)]="stepInput"
+            (change)="updateSteps()"
+            class="form-control"
+          />
+          <button (click)="addSteps(100)" class="btn btn-secondary">+100</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="goal">Daily Goal:</label>
+        <div class="input-with-buttons">
+          <button (click)="decreaseGoal()" class="btn btn-secondary">-1000</button>
+          <input
+            type="number"
+            id="goal"
+            [(ngModel)]="goalInput"
+            (change)="updateGoal()"
+            class="form-control"
+          />
+          <button (click)="increaseGoal()" class="btn btn-secondary">+1000</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button (click)="addSteps(500)" class="btn btn-primary">Add 500 Steps</button>
+      <button (click)="addSteps(1000)" class="btn btn-primary">Add 1000 Steps</button>
+      <button (click)="resetSteps()" class="btn btn-danger">Reset</button>
+    </div>
+  </div>
+</div>
