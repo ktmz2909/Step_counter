@@ -61,14 +61,6 @@ step-counter/
 │   └── ...
 └── ...
 ```
-
-## Architecture technique
-
-- **Composants standalone :** Architecture moderne utilisant des composants autonomes
-- **Service centralisé :** Gestion des données partagées entre les composants via un service injectable
-- **Interfaces typées :** Utilisation des interfaces TypeScript pour une meilleure stabilité du code
-- **Programmation réactive :** Implémentation avec RxJS pour les flux de données observables
-
 ## Personnalisation
 
 ### Modifier l'objectif quotidien par défaut
